@@ -1,4 +1,4 @@
-Personal config overlay for the awesome [Omarchy](https://omarchy.com) Linux desktop. Track, version, and restore customizations on top of a base Omarchy install.
+Personal config overlay for the awesome [Omarchy](https://omarchy.org) Linux desktop. Track, version, and restore customizations on top of a base Omarchy install.
 
 This is **not** an Omarchy fork or development repo. It's a personal dotfiles-style overlay
 
