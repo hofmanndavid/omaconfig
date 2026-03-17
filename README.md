@@ -13,7 +13,7 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 - Mouse set to natural scrolling
 - Alacrity font set to 15 and copy on select and paste on right click
 - ion/ioff bash aliasses and lid-swich action in hyprland set to deal with laptop display on/off
-- Some sound input/output devices shows in the device list even though they have no route to sound
+- Hide some sound input/output devices with no route selected
 - Install some perosnal software that I use everyday (java/maven/gradle/varlock, etc.)
 
 That is it, omarchy has amazing defaults as it is. You should try it.
