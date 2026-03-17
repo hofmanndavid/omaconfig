@@ -10,6 +10,8 @@ This repo tracks personal modifications to an Omarchy Linux desktop. It is NOT a
 2. Track additional software installed on top of base omarchy
 3. Provide a reproducible setup via scripts
 
+Running Omarchy 3.4.2, current theme: Tokyo Night.
+
 ## Key Concepts
 
 - **Omarchy defaults** live in `~/.local/share/omarchy/default/` (read-only, never edit)
@@ -38,7 +40,6 @@ Current tracked configs:
 - `configs/.config/hypr/bindings.conf` — app launchers, key bindings, lid switch
 - `configs/.config/hypr/input.conf` — input/mouse/touchpad settings
 - `configs/.config/hypr/monitors.conf` — monitor layout, scaling, resolution
-- `configs/.config/hypr/autostart.conf` — extra env vars (GUI PATH), autostart processes
 - `configs/.config/hypr/looknfeel.conf` — gaps, borders, decorations, animations
 
 ## Workflow
@@ -52,5 +53,10 @@ Current tracked configs:
 - When modifying system configs, always edit the file under `configs/` in this repo, then run `install-config.sh` to deploy — never edit `~/.config/` files directly
 - After any system-modifying action, append an entry to `touches.md`
 - When pulling in a new config file, add it to the `FILES` array in BOTH pull-config.sh and install-config.sh
-- Keep this CLAUDE.md up to date: update "Files We Track" when new configs are added
+- Keep this CLAUDE.md up to date, for example update "Files We Track" when new configs are added
+- Before writing Hyprland window rules, check the current syntax from the Hyprland wiki — the format changes between versions.
 - Use the omarchy skill when you need to understand hyprland/waybar/etc. config syntax
+- When rebinding a key in hypr/bindings.conf, check existing bindings first (omarchy-menu-keybindings --print) and add unbind before bind if the key is already used.
+- Read ~/.local/share/omarchy/ freely for reference, but never edit files there.
+
+
