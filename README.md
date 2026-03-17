@@ -28,7 +28,7 @@ omaconfig/
 │           └── monitors.conf
 ├── config.sh                 # Pull/install config files
 ├── fresh-install.sh          # Restore additional software on a fresh install
-├── touches.md                # Changelog of system modifications
+├── changes.md                # Changelog of system modifications
 └── CLAUDE.md                 # Instructions for Claude Code AI assistant
 ```
 

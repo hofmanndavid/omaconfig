@@ -46,12 +46,12 @@ Current tracked configs:
 
 1. To modify a config: add its path to `FILES` in `config.sh`, run `config.sh pull`, edit the file under `configs/`, run `config.sh install`
 2. To track a new install: add the install command to `fresh-install.sh`
-3. Log what you did in `touches.md`
+3. Log what you did in `changes.md`
 
 ## Instructions for Claude
 
 - When modifying system configs, always edit the file under `configs/` in this repo, then run `config.sh install` to deploy — never edit `~/.config/` files directly
-- After any system-modifying action, append an entry to `touches.md`
+- After any system-modifying action, append an entry to `changes.md`
 - When pulling in a new config file, add it to the `FILES` array in `config.sh`
 - Keep this CLAUDE.md up to date, for example update "Files We Track" when new configs are added
 - Before writing Hyprland window rules, check the current syntax from the Hyprland wiki — the format changes between versions.
