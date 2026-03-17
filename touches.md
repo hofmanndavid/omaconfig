@@ -4,6 +4,7 @@ System modifications performed, newest first.
 
 ## 2026-03-16
 
+- **Merged config scripts**: Combined `pull-config.sh` and `install-config.sh` into `config.sh [pull|install]` with a single shared `FILES` array
 - **Varlock mise shim**: Symlinked varlock into `~/.local/share/mise/shims/` so GUI apps can find it; removed broken PATH approaches from `.bashrc` and `autostart.conf`
 - **Varlock installed**: v0.5.0 via `curl -sSfL https://varlock.dev/install.sh | sh -s`, added PATH export to `.bashrc`, added to `fresh-install.sh`
 - **JetBrains Toolbox installed**: v3.3.1 to `/home/hdavid/programs/toolbox-app/`, added .desktop file for Walker launcher, added to `fresh-install.sh`

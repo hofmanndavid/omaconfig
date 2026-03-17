@@ -21,18 +21,18 @@ Running Omarchy 3.4.2, current theme: Tokyo Night.
 
 ## Scripts
 
-### pull-config.sh
-Copies tracked config files FROM the live system INTO this repo. Run this to capture current state. When adding a new file to track, add it to the `FILES` array in this script (and in install-config.sh).
+### config.sh [pull|install]
+- `config.sh pull` — copies tracked config files FROM the live system INTO this repo
+- `config.sh install` — copies tracked config files FROM this repo TO the live system
 
-### install-config.sh
-Copies tracked config files FROM this repo TO the live system. Run after cloning on a fresh install or after editing configs in the repo.
+The `FILES` array in this script is the single registry of tracked files. When adding a new file to track, add it there.
 
 ### fresh-install.sh
 Records additional software installations (curl|bash, sdkman, npm -g, pacman, etc.) done on top of base omarchy. Run on a fresh omarchy install to restore the full environment. Only add entries here when you actually install something new.
 
 ## Files We Track
 
-Config files are stored under `configs/` mirroring their system path relative to `~`. The registry of tracked files is the `FILES` array in pull-config.sh and install-config.sh — keep them in sync.
+Config files are stored under `configs/` mirroring their system path relative to `~`. The registry of tracked files is the `FILES` array in `config.sh`.
 
 Current tracked configs:
 - `configs/.bashrc` — shell aliases and custom functions
@@ -44,15 +44,15 @@ Current tracked configs:
 
 ## Workflow
 
-1. To modify a config: first add its path to `FILES` in both scripts, run `pull-config.sh`, edit the file under `configs/`, run `install-config.sh`
+1. To modify a config: add its path to `FILES` in `config.sh`, run `config.sh pull`, edit the file under `configs/`, run `config.sh install`
 2. To track a new install: add the install command to `fresh-install.sh`
 3. Log what you did in `touches.md`
 
 ## Instructions for Claude
 
-- When modifying system configs, always edit the file under `configs/` in this repo, then run `install-config.sh` to deploy — never edit `~/.config/` files directly
+- When modifying system configs, always edit the file under `configs/` in this repo, then run `config.sh install` to deploy — never edit `~/.config/` files directly
 - After any system-modifying action, append an entry to `touches.md`
-- When pulling in a new config file, add it to the `FILES` array in BOTH pull-config.sh and install-config.sh
+- When pulling in a new config file, add it to the `FILES` array in `config.sh`
 - Keep this CLAUDE.md up to date, for example update "Files We Track" when new configs are added
 - Before writing Hyprland window rules, check the current syntax from the Hyprland wiki — the format changes between versions.
 - Use the omarchy skill when you need to understand hyprland/waybar/etc. config syntax
