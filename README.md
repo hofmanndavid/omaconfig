@@ -6,7 +6,7 @@ This is **not** an Omarchy fork or development repo. It's a personal dotfiles-st
 
 Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 
-## Installing arch linux + omarchy:
+## Installing arch linux + omarchy
 
 ### If you need to remove some partitions
 
@@ -22,7 +22,7 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 - station wlan0 scan
 - station wlan0 connect <tab>
 
-### Arch install TUI:
+### Arch install TUI
 
 - archinstall
 - Disk configuration	Partitioning > Default partitioning layout > Select disk (with space + return)
@@ -46,7 +46,7 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 - Via omarchy menu -> setup -> security -> fingerprint enroll a finger to use for authentication
 - Clone this repo and run `fresh-install.sh && config.sh install`
 
-## Changes this repo brings to the base installation:
+## Changes this repo brings to the base installation
 
 - Window gaps removed and border size shrinked to 1px on a black background
 - Scaling set to 2x for my 32 inch 4k display
@@ -58,7 +58,7 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 
 That is it, omarchy has amazing defaults as it is. You should try it.
 
-## What omarchy does well for me:
+## What omarchy does well for me
 
 - Havign 1Password integration is great, even better when fingerprint sensor works well on first try!
   - It integrates with your ssh client for key management so that you ssh keys can't be read without you knowing about it and not having to type/remember yet another passphrase
