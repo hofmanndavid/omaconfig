@@ -6,7 +6,46 @@ This is **not** an Omarchy fork or development repo. It's a personal dotfiles-st
 
 Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 
-## Changes:
+## Installing arch linux + omarchy:
+
+### if you need to remove some partitions
+
+- lsblk to get your device list
+- fdisk /dev/<device>
+  - p to list partitions
+  - d to delete
+  - w to write and quit
+
+### connecting to wifi
+
+- iwctl
+- station wlan0 scan
+- station wlan0 connect <tab>
+
+### arch install TUI:
+
+- archinstall
+- Disk configuration	Partitioning > Default partitioning layout > Select disk (with space + return)
+- Disk > File system	btrfs (default structure: yes + use compression)
+- Disk > Disk encryption	Encryption type: LUKS + Encryption password + Partitions (select the one)
+- Hostname	Give your computer a name
+- Bootloader	Limine
+- Authentication > Root password	Set yours
+- Authentication > User account	Add a user > Superuser: Yes > Confirm and exit
+- Applications > Audio	pipewire
+- Network configuration	Copy ISO network config
+- Timezone	Set yours
+- Restart, login as your user and `curl -fsSL https://omarchy.org/install | bash`
+
+### Manual stuff
+
+- Configure 1Password + your ssh client + op cli tool, add 1 Password to chromium
+- Chromium:
+  - Remove omarchy copy url extension
+  - set startup to open where you left off
+- clone this repo and run `fresh-install.sh`
+
+## Changes this repo brings to the base installation:
 
 - Window gaps removed and border size shrinked to 1px on a black background
 - Scaling set to 2x for my 32 inch 4k display
