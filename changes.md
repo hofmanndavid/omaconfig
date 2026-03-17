@@ -1,9 +1,10 @@
-# Touches Log
+# Changes Log
 
 System modifications performed, newest first.
 
 ## 2026-03-16
 
+- **Hidden unused audio devices**: Disabled 3 phantom HDMI/DP audio outputs (DP 1-3, no monitors connected) and 2 unused Ryzen laptop mics via WirePlumber node rules
 - **Merged config scripts**: Combined `pull-config.sh` and `install-config.sh` into `config.sh [pull|install]` with a single shared `FILES` array
 - **Varlock mise shim**: Symlinked varlock into `~/.local/share/mise/shims/` so GUI apps can find it; removed broken PATH approaches from `.bashrc` and `autostart.conf`
 - **Varlock installed**: v0.5.0 via `curl -sSfL https://varlock.dev/install.sh | sh -s`, added PATH export to `.bashrc`, added to `fresh-install.sh`

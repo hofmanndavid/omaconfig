@@ -41,6 +41,7 @@ Current tracked configs:
 - `configs/.config/hypr/input.conf` — input/mouse/touchpad settings
 - `configs/.config/hypr/monitors.conf` — monitor layout, scaling, resolution
 - `configs/.config/hypr/looknfeel.conf` — gaps, borders, decorations, animations
+- `configs/.config/wireplumber/wireplumber.conf.d/90-hide-unused-nodes.conf` — hides unused HDMI/DP audio outputs and laptop mics
 
 ## Workflow
 

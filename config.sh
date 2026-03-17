@@ -16,6 +16,7 @@ FILES=(
   ".config/hypr/monitors.conf"
   ".config/alacritty/alacritty.toml"
   ".config/hypr/looknfeel.conf"
+  ".config/wireplumber/wireplumber.conf.d/90-hide-unused-nodes.conf"
 )
 
 case "${1:-}" in

@@ -1,0 +1,1 @@
+- research how to integrate this config using stow for symlinking instead of config.sh pull/install
