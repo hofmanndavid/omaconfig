@@ -13,9 +13,18 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 - Mouse set to natural scrolling
 - Alacrity font set to 15 and copy on select and paste on right click
 - ion/ioff bash aliasses and lid-swich action in hyprland set to deal with laptop display on/off
+- Some sound input/output devices shows in the device list even though they have no route to sound
 - Install some perosnal software that I use everyday (java/maven/gradle/varlock, etc.)
 
 That is it, omarchy has amazing defaults as it is. You should try it.
+
+## What omarchy does well for me:
+
+- Havign 1Password integration is great
+  - It integrates with your ssh client for key management so that you ssh keys can't be read without you knowing about it and not having to type/remember yet another passphrase
+  - It has the op commadn that can be used in tools such a varlock to let your programs access API secrets stored in your 1Pasword. Great way to not have plain text .env files laying around in a readable form
+- Having a well-configured and beautiful tiling window manager with well-thought-out key combinations is great
+- Sound and bluetooth working fine on the first try on arch linux, amazing! Getting used to TUIs for sound and bluetooth took some work though.
 
 ## Usage
 
