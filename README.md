@@ -43,7 +43,8 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 - Chromium:
   - Remove omarchy copy url extension
   - set startup to open where you left off
-- clone this repo and run `fresh-install.sh`
+- Via omarchy menu -> setup -> security -> fingerprint enroll a finger to use for authentication
+- Clone this repo and run `fresh-install.sh && config.sh install`
 
 ## Changes this repo brings to the base installation:
 
