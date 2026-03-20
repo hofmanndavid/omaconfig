@@ -2,6 +2,13 @@
 
 System modifications performed, newest first.
 
+## 2026-03-20
+
+- **Tracked black wallpaper**: Added `assets/black.png` to repo and added post-install step in `fresh-install.sh` to copy it to theme backgrounds and repoint the background symlink
+- **Installed pavucontrol**: Added `sudo pacman -S pavucontrol` to `fresh-install.sh`, script now requires sudo
+- **Removed HDMI audio hiding rules**: Kept only laptop mic hiding in WirePlumber config — HDMI outputs shift depending on which USB port the dock uses, so hiding by name caused the active output to disappear
+- **Switched varlock to npm**: Replaced `curl|sh` install with `npm install -g varlock@latest` in `fresh-install.sh`, removed manual mise shim symlink (mise auto-shims npm globals), cleaned up old install from `~/.config/varlock/bin/`
+
 ## 2026-03-16
 
 - **Hidden unused audio devices**: Disabled 3 phantom HDMI/DP audio outputs (DP 1-3, no monitors connected) and 2 unused Ryzen laptop mics via WirePlumber node rules

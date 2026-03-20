@@ -52,6 +52,7 @@ Current tracked configs:
 ## Instructions for Claude
 
 - When modifying system configs, always edit the file under `configs/` in this repo, then run `config.sh install` to deploy — never edit `~/.config/` files directly
+- **Every system change must be reproducible.** If a change is not covered by a config file tracked in `config.sh`, it MUST be added to `fresh-install.sh` (or another tracked mechanism) so a fresh install reproduces it. This includes: software installs, symlinks, copied assets, wallpaper changes, desktop files, and any other system-level side effects. Never make a live-system-only change without also making it reproducible from this repo.
 - After any system-modifying action, append an entry to `changes.md`
 - When pulling in a new config file, add it to the `FILES` array in `config.sh`
 - Keep this CLAUDE.md up to date, for example update "Files We Track" when new configs are added

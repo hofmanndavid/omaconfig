@@ -7,10 +7,19 @@ set -euo pipefail
 
 echo "=== Fresh Install: Additional Software ==="
 
-# --- CLI tools (curl bash, npm packages and sdk managers) ---
-curl -s "https://get.sdkman.io" | bash
-curl -sSfL https://varlock.dev/install.sh | sh -s
+# --- Require sudo (needed for pacman installs) ---
+if ! sudo -v; then
+  echo "Error: this script requires sudo privileges"
+  exit 1
+fi
+
+# --- System packages (pacman) ---
+sudo pacman -S --noconfirm pavucontrol
+
+# --- CLI tools (npm packages and sdk managers) ---
+npm install -g varlock@latest
 npm install -g @playwright/cli@latest
+curl -s "https://get.sdkman.io" | bash
 
 # --- SDKMAN-based runtime installs ---
 source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -36,5 +45,15 @@ Icon=/home/hdavid/.local/share/applications/icons/JetBrains Toolbox.png
 StartupNotify=true
 DESKTOP
 rm -f /tmp/jetbrains-toolbox.tar.gz && rm -rf /tmp/jetbrains-toolbox-*
+
+# --- Post-install setup (wallpaper, shims) ---
+
+# Black wallpaper: copy to theme backgrounds and repoint the background symlink
+THEME_BG_DIR="$HOME/.config/omarchy/current/theme/backgrounds"
+if [[ -d "$THEME_BG_DIR" ]]; then
+  cp "$(dirname "$0")/assets/black.png" "$THEME_BG_DIR/black.png"
+  ln -sf "$THEME_BG_DIR/black.png" "$HOME/.config/omarchy/current/background"
+  echo "  installed: black wallpaper"
+fi
 
 echo "=== Done ==="
