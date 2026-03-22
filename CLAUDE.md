@@ -57,7 +57,7 @@ Current tracked configs:
 - When pulling in a new config file, add it to the `FILES` array in `config.sh`
 - Keep this CLAUDE.md up to date, for example update "Files We Track" when new configs are added
 - Before writing Hyprland window rules, check the current syntax from the Hyprland wiki — the format changes between versions.
-- Use the omarchy skill when you need to understand hyprland/waybar/etc. config syntax
+- Use the Omarchy skill when you need to understand hyprland/waybar/etc. config syntax
 - When rebinding a key in hypr/bindings.conf, check existing bindings first (omarchy-menu-keybindings --print) and add unbind before bind if the key is already used.
 - Read ~/.local/share/omarchy/ freely for reference, but never edit files there.
 
