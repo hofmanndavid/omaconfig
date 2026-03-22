@@ -4,6 +4,7 @@ System modifications performed, newest first.
 
 ## 2026-03-22
 
+- **Borders on floating windows**: Added `windowrule = border_size 1, match:float true` in `looknfeel.conf` — floating windows always show 1px border even when workspace rule hides borders for single tiled windows
 - **Playwright CLI skill install**: Added `playwright-cli install --skill` to `fresh-install.sh` after the npm install, so the Claude Code skill is registered on fresh installs
 - **Hide border on single window**: Added workspace rule `w[t1], bordersize:0` in `looknfeel.conf` — removes border when only one tiled window in workspace, keeps 1px border for multiple windows
 

@@ -41,7 +41,6 @@ Current tracked configs:
 - `configs/.config/hypr/input.conf` — input/mouse/touchpad settings
 - `configs/.config/hypr/monitors.conf` — monitor layout, scaling, resolution
 - `configs/.config/hypr/looknfeel.conf` — gaps, borders, decorations, animations
-- `configs/.config/wireplumber/wireplumber.conf.d/90-hide-unused-nodes.conf` — hides unused HDMI/DP audio outputs and laptop mics
 
 ## Workflow
 
@@ -51,6 +50,7 @@ Current tracked configs:
 
 ## Instructions for Claude
 
+- **At the start of every new session**, before answering or doing anything else: read all files in this repo and load the Omarchy skill. This ensures full context of the current config state and access to Hyprland/Waybar/etc. syntax references.
 - When modifying system configs, always edit the file under `configs/` in this repo, then run `config.sh install` to deploy — never edit `~/.config/` files directly
 - **Every system change must be reproducible.** If a change is not covered by a config file tracked in `config.sh`, it MUST be added to `fresh-install.sh` (or another tracked mechanism) so a fresh install reproduces it. This includes: software installs, symlinks, copied assets, wallpaper changes, desktop files, and any other system-level side effects. Never make a live-system-only change without also making it reproducible from this repo.
 - After any system-modifying action, append an entry to `changes.md`
