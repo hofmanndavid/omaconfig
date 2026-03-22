@@ -19,6 +19,7 @@ sudo pacman -S --noconfirm pavucontrol
 # --- CLI tools (npm packages and sdk managers) ---
 npm install -g varlock@latest
 npm install -g @playwright/cli@latest
+(cd && playwright-cli install --skill)
 curl -s "https://get.sdkman.io" | bash
 
 # --- SDKMAN-based runtime installs ---

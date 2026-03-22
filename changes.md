@@ -2,6 +2,11 @@
 
 System modifications performed, newest first.
 
+## 2026-03-22
+
+- **Playwright CLI skill install**: Added `playwright-cli install --skill` to `fresh-install.sh` after the npm install, so the Claude Code skill is registered on fresh installs
+- **Hide border on single window**: Added workspace rule `w[t1], bordersize:0` in `looknfeel.conf` — removes border when only one tiled window in workspace, keeps 1px border for multiple windows
+
 ## 2026-03-20
 
 - **Tracked black wallpaper**: Added `assets/black.png` to repo and added post-install step in `fresh-install.sh` to copy it to theme backgrounds and repoint the background symlink

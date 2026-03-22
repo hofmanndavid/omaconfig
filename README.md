@@ -49,7 +49,8 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 
 ## Changes this repo brings to the base installation
 
-- Window gaps removed and border size shrinked to 1px on a black background
+- Window gaps removed and border size shrunk to 1px on a black background
+- Borders only visible when multiple windows are open in the same workspace
 - Scaling set to 2x for my 32 inch 4k display
 - Mouse set to natural scrolling
 - Alacrity font set to 15 and copy on select and paste on right click
