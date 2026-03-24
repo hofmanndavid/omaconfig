@@ -52,8 +52,8 @@ Current tracked configs:
 
 - **At the start of every new session**, before answering or doing anything else: read all files in this repo and load the Omarchy skill. This ensures full context of the current config state and access to Hyprland/Waybar/etc. syntax references.
 - When modifying system configs, always edit the file under `configs/` in this repo, then run `config.sh install` to deploy — never edit `~/.config/` files directly
-- **Every system change must be reproducible.** If a change is not covered by a config file tracked in `config.sh`, it MUST be added to `fresh-install.sh` (or another tracked mechanism) so a fresh install reproduces it. This includes: software installs, symlinks, copied assets, wallpaper changes, desktop files, and any other system-level side effects. Never make a live-system-only change without also making it reproducible from this repo.
-- After any system-modifying action, append an entry to `changes.md`
+- **Every system change must be reproducible.** If a change is not covered by a config file tracked in `config.sh`, it MUST be added to `fresh-install.sh` (or another tracked mechanism) so a fresh install reproduces it. This includes: software installs, symlinks, copied assets, wallpaper changes, desktop files, shell commands that alter system state (e.g. `mise reshim`), and any other system-level side effects. Never make a live-system-only change without also making it reproducible from this repo.
+- **A task is not complete until reproducibility is handled.** After any system-modifying action, immediately update `fresh-install.sh` (and/or `config.sh`), log the change in `changes.md`, and update this file if needed — all before reporting the task as done to the user. Do not wait to be asked.
 - When pulling in a new config file, add it to the `FILES` array in `config.sh`
 - Keep this CLAUDE.md up to date, for example update "Files We Track" when new configs are added
 - Before writing Hyprland window rules, check the current syntax from the Hyprland wiki — the format changes between versions.

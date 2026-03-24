@@ -47,6 +47,14 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
     - fprintd-verify
 - Clone this repo and run `fresh-install.sh && config.sh install`
 
+### Updates and maintenance
+
+- Only update system packages via omarchy menu → update → omarchy. This ensures you get the latest omarchy customizations on top of any new system update.
+- Update npm tools with 
+  - `npm outdated -g` - finds outdated global npm packages
+  - `npm install -g <package>@latest` - updates a specific package to the latest version globally
+  - `npm view @varlock/1password-plugin version` - check latest version of varlock 1password plugin
+
 ## Changes this repo brings to the base installation
 
 - Window gaps removed and border size shrunk to 1px on a black background

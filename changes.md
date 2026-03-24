@@ -2,6 +2,11 @@
 
 System modifications performed, newest first.
 
+## 2026-03-24
+
+- **JetBrains Toolbox install script**: Extracted toolbox installation from `fresh-install.sh` into standalone `install-jetbrains-toolbox.sh` that auto-detects the latest version via JetBrains API instead of hardcoding a version
+- **Added `mise reshim` to fresh-install.sh**: After npm global installs, run `mise reshim` so binaries like `varlock` get shims that non-shell apps (IntelliJ) can find via PATH
+
 ## 2026-03-22
 
 - **Borders on floating windows**: Added `windowrule = border_size 1, match:float true` in `looknfeel.conf` — floating windows always show 1px border even when workspace rule hides borders for single tiled windows

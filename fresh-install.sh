@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -euxo pipefail
 
 # fresh-install.sh
 # Run on a fresh Omarchy install to restore additional software.
@@ -20,6 +20,7 @@ sudo pacman -S --noconfirm pavucontrol
 npm install -g varlock@latest
 npm install -g @playwright/cli@latest
 (cd && playwright-cli install --skill)
+mise reshim  # ensure npm -g binaries get shims (needed for non-shell apps like IntelliJ)
 curl -s "https://get.sdkman.io" | bash
 
 # --- SDKMAN-based runtime installs ---
@@ -29,23 +30,7 @@ sdk install maven 3.9.14
 sdk install gradle 9.4.0
 
 # JetBrains Toolbox
-mkdir -p "$HOME/programs/toolbox-app"
-curl -L -o /tmp/jetbrains-toolbox.tar.gz "https://download.jetbrains.com/toolbox/jetbrains-toolbox-3.3.1.75249.tar.gz"
-tar xzf /tmp/jetbrains-toolbox.tar.gz -C /tmp
-cp -r /tmp/jetbrains-toolbox-*/* "$HOME/programs/toolbox-app/"
-cp "$HOME/programs/toolbox-app/bin/toolbox-tray-color.png" "$HOME/.local/share/applications/icons/JetBrains Toolbox.png"
-cat > "$HOME/.local/share/applications/jetbrains-toolbox.desktop" << 'DESKTOP'
-[Desktop Entry]
-Version=1.0
-Name=JetBrains Toolbox
-Comment=JetBrains Toolbox App
-Exec=/home/hdavid/programs/toolbox-app/bin/jetbrains-toolbox
-Terminal=false
-Type=Application
-Icon=/home/hdavid/.local/share/applications/icons/JetBrains Toolbox.png
-StartupNotify=true
-DESKTOP
-rm -f /tmp/jetbrains-toolbox.tar.gz && rm -rf /tmp/jetbrains-toolbox-*
+"$(dirname "$0")/install-jetbrains-toolbox.sh"
 
 # --- Post-install setup (wallpaper, shims) ---
 

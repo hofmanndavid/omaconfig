@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -euxo pipefail
 
 # config.sh [pull|install]
 # pull    — copy tracked config files from the live system into this repo
