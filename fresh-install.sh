@@ -14,32 +14,29 @@ if ! sudo -v; then
 fi
 
 # --- System packages (pacman) ---
-sudo pacman -S --noconfirm pavucontrol
+sudo pacman -S --noconfirm stow
 
-# --- CLI tools (npm packages and sdk managers) ---
+# --- NPM based CLI tools ---
 npm install -g varlock@latest
 npm install -g @playwright/cli@latest
 (cd && playwright-cli install --skill)
 mise reshim  # ensure npm -g binaries get shims (needed for non-shell apps like IntelliJ)
-curl -s "https://get.sdkman.io" | bash
 
-# --- SDKMAN-based runtime installs ---
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+# --- SDK based installs ---
+curl -s "https://get.sdkman.io" | bash
+source ~/.sdkman/bin/sdkman-init.sh
 sdk install java 25.0.2-tem
 sdk install maven 3.9.14
 sdk install gradle 9.4.0
 
-# JetBrains Toolbox
-"$(dirname "$0")/install-jetbrains-toolbox.sh"
+# --- Install JetBrains Toolbox ---
+"$(dirname "$0")/scripts/install-jetbrains-toolbox.sh"
 
-# --- Post-install setup (wallpaper, shims) ---
+# --- Post-install setup ---
+"$(dirname "$0")/scripts/set-wallpaper.sh"
 
-# Black wallpaper: copy to theme backgrounds and repoint the background symlink
-THEME_BG_DIR="$HOME/.config/omarchy/current/theme/backgrounds"
-if [[ -d "$THEME_BG_DIR" ]]; then
-  cp "$(dirname "$0")/assets/black.png" "$THEME_BG_DIR/black.png"
-  ln -sf "$THEME_BG_DIR/black.png" "$HOME/.config/omarchy/current/background"
-  echo "  installed: black wallpaper"
-fi
+# --- Deploy config symlinks via stow ---
+REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
+stow -v -t "$HOME" -d "$REPO_DIR" configs
 
 echo "=== Done ==="

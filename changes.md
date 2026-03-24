@@ -4,6 +4,7 @@ System modifications performed, newest first.
 
 ## 2026-03-24
 
+- **Migrated to GNU Stow**: Replaced `config.sh pull/install` with GNU Stow symlinks. Config files under `configs/` are now symlinked into `~` — edits are live immediately. Removed `config.sh`, added stow to `fresh-install.sh`
 - **JetBrains Toolbox install script**: Extracted toolbox installation from `fresh-install.sh` into standalone `install-jetbrains-toolbox.sh` that auto-detects the latest version via JetBrains API instead of hardcoding a version
 - **Added `mise reshim` to fresh-install.sh**: After npm global installs, run `mise reshim` so binaries like `varlock` get shims that non-shell apps (IntelliJ) can find via PATH
 

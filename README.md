@@ -45,7 +45,7 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
     - fprintd-enroll -f [left|right]-[thumb|index|middle|ring|little]-finger
     - fprintd-list $(whoami)
     - fprintd-verify
-- Clone this repo and run `fresh-install.sh && config.sh install`
+- Clone this repo and run `fresh-install.sh` (it installs stow and deploys config symlinks)
 
 ### Updates and maintenance
 
@@ -80,24 +80,26 @@ That is it, omarchy has amazing defaults as it is. You should try it.
 
 ## Usage
 
-### Deploying configs to the system
-
-```bash
-./config.sh install
-```
-
-Copies all tracked config files from `configs/` to their corresponding locations under `~/`.
-
-### Pulling configs from the system
-
-```bash
-./config.sh pull
-```
-
-Copies tracked config files from the live system into the repo, ready to commit.
-
 ### Fresh install setup
 
 ```bash
 ./fresh-install.sh
 ```
+
+Installs all additional software and deploys config symlinks via GNU Stow.
+
+### Config management
+
+Config files under `configs/` are symlinked into `~` via stow. Edits are live immediately — no deploy step needed.
+
+Stow commands must be run from the repo root (`~/repos/omaconfig`):
+
+```bash
+# Deploy/refresh symlinks (after adding a new config file):
+stow -R -v -t ~ configs
+
+# Remove all symlinks:
+stow -D -v -t ~ configs
+```
+
+To track a new config file: `mv ~/path/to/file configs/path/to/file && stow -R -t ~ configs`
