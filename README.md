@@ -1,6 +1,5 @@
-Personal config overlay for the awesome [Omarchy](https://omarchy.org) Linux desktop. Track, version, and restore customizations on top of a base Omarchy install.
-
-This is **not** an Omarchy fork or development repo. It's a personal dotfiles-style overlay
+This is a personal dotfiles-style overlay on top of the the awesome [Omarchy](https://omarchy.org) Linux desktop. 
+It is **not** an Omarchy fork or development repo. 
 
 Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 
@@ -63,7 +62,6 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 - Mouse set to natural scrolling
 - Alacrity font set to 15 and copy on select and paste on right click
 - ion/ioff bash aliasses and lid-swich action in hyprland set to deal with laptop display on/off
-- Hide some sound input/output devices with no route selected
 - Install some perosnal software that I use everyday (java/maven/gradle/varlock, etc.)
 
 That is it, omarchy has amazing defaults as it is. You should try it.
