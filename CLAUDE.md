@@ -55,6 +55,7 @@ stow -v -t ~ configs
 - `configs/.config/hypr/monitors.conf` — monitor layout, scaling, resolution
 - `configs/.config/hypr/looknfeel.conf` — gaps, borders, decorations, animations
 - `configs/.config/waybar/config.jsonc` — bar layout, modules, clock format
+- `configs/.config/starship.toml` — shell prompt (Starship) config
 - `configs/.config/waybar/style.css` — bar styling
 
 ## Workflow
