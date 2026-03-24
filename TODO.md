@@ -1,0 +1,1 @@
+- integrate https://calcurse.org/ on click on date in waybar

@@ -54,6 +54,8 @@ stow -v -t ~ configs
 - `configs/.config/hypr/input.conf` — input/mouse/touchpad settings
 - `configs/.config/hypr/monitors.conf` — monitor layout, scaling, resolution
 - `configs/.config/hypr/looknfeel.conf` — gaps, borders, decorations, animations
+- `configs/.config/waybar/config.jsonc` — bar layout, modules, clock format
+- `configs/.config/waybar/style.css` — bar styling
 
 ## Workflow
 

@@ -4,6 +4,8 @@ System modifications performed, newest first.
 
 ## 2026-03-24
 
+- **Snapshot defaults script**: Added `scripts/snapshot-defaults.sh` — copies fresh system versions of tracked configs into `defaults/` for diffing against `configs/` before stowing. Run manually on a fresh install before `stow`
+- **Waybar clock customized**: Changed clock to 12-hour format without AM/PM text (`%-I:%M`), removed click-to-toggle alternate format (NOOP on click), moved clock from center to rightmost position in the bar. Tracked waybar config files (`config.jsonc`, `style.css`) via Stow
 - **Migrated to GNU Stow**: Replaced `config.sh pull/install` with GNU Stow symlinks. Config files under `configs/` are now symlinked into `~` — edits are live immediately. Removed `config.sh`, added stow to `fresh-install.sh`
 - **JetBrains Toolbox install script**: Extracted toolbox installation from `fresh-install.sh` into standalone `install-jetbrains-toolbox.sh` that auto-detects the latest version via JetBrains API instead of hardcoding a version
 - **Added `mise reshim` to fresh-install.sh**: After npm global installs, run `mise reshim` so binaries like `varlock` get shims that non-shell apps (IntelliJ) can find via PATH
