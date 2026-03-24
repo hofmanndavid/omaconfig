@@ -19,6 +19,7 @@ sudo pacman -S --noconfirm stow
 # --- NPM based CLI tools ---
 npm install -g varlock@latest
 npm install -g @playwright/cli@latest
+# install claude playwright-cli user-wide
 (cd && playwright-cli install --skill)
 mise reshim  # ensure npm -g binaries get shims (needed for non-shell apps like IntelliJ)
 
