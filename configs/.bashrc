@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 
 # Exported env vars
-export SDKMAN_DIR="$HOME/.sdkman"
+export SDKMAN_DIR=~/.sdkman
 
 # Source some env files
 . ~/.local/share/omarchy/default/bash/rc
