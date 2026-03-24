@@ -33,11 +33,11 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 
 ### Manual stuff
 
-- Configure 1Password + your ssh client + op cli tool
+- Configure 1Password: browser extension, your ssh client, op cli tool
 - Chromium:
-  - Add 1 Password to chromium
+  - Add uBlock Origin Lite https://chromewebstore.google.com/detail/ddkjiahejlhfcafbddmgiahcphecmpfh
   - Remove omarchy copy url extension
-  - set startup to open where you left off
+  - Set startup to open where you left off
 - Via omarchy menu → setup → security → fingerprint enroll a finger to use for authentication
   - extra fprintd commands:
     - fprintd-enroll
