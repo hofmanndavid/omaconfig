@@ -4,6 +4,7 @@ System modifications performed, newest first.
 
 ## 2026-03-24
 
+- **Waybar clock moved to center**: Moved clock from rightmost module to first in center modules group
 - **Shell prompt error indicator**: Added red "x" on its own line before the prompt when the previous command failed. Changed error_symbol to match success_symbol (both `❯`) since the status module now handles error indication. Tracked `starship.toml` via Stow
 - **Snapshot defaults script**: Added `scripts/snapshot-defaults.sh` — copies fresh system versions of tracked configs into `defaults/` for diffing against `configs/` before stowing. Run manually on a fresh install before `stow`
 - **Waybar clock customized**: Changed clock to 12-hour format without AM/PM text (`%-I:%M`), removed click-to-toggle alternate format (NOOP on click), moved clock from center to rightmost position in the bar. Tracked waybar config files (`config.jsonc`, `style.css`) via Stow
