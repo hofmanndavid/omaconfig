@@ -53,6 +53,7 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
   - `npm outdated -g` - finds outdated global npm packages
   - `npm install -g <package>@latest` - updates a specific package to the latest version globally
   - `npm view @varlock/1password-plugin version` - check latest version of varlock 1password plugin
+- When working with waybar config, changes are not reflected until you do `pkill waybar && hyprctl dispatch exec waybar`
 
 ## Changes this repo brings to the base installation
 
