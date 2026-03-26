@@ -4,6 +4,7 @@ System modifications performed, newest first.
 
 ## 2026-03-26
 
+- **Idle timeouts customized**: Updated hypridle.conf — screensaver at 420s/7min (was 150s), lock at 480s/8min (was 151s), screen off at 600s/10min (was 330s). Tracked hypridle.conf via Stow
 - **Sublime Text 4 installed**: Added `sudo pacman -S sublime-text-4` to `fresh-install.sh` (from omarchy repo)
 
 ## 2026-03-24
