@@ -18,6 +18,7 @@ fi
 
 # --- System packages (pacman) ---
 sudo pacman -S --noconfirm stow
+sudo pacman -S --noconfirm sublime-text-4
 
 # --- NPM based CLI tools ---
 npm install -g varlock@latest

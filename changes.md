@@ -2,6 +2,10 @@
 
 System modifications performed, newest first.
 
+## 2026-03-26
+
+- **Sublime Text 4 installed**: Added `sudo pacman -S sublime-text-4` to `fresh-install.sh` (from omarchy repo)
+
 ## 2026-03-24
 
 - **Waybar clock moved to center**: Moved clock from rightmost module to first in center modules group
