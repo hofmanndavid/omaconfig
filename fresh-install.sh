@@ -38,11 +38,15 @@ npm install -g @playwright/cli@latest
 mise reshim  # ensure npm -g binaries get shims (needed for non-shell apps like IntelliJ)
 
 # --- SDK based installs ---
-curl -s "https://get.sdkman.io" | bash
+if [[ ! -d "$HOME/.sdkman" ]]; then
+  curl -s "https://get.sdkman.io" | bash
+fi
+set +u  # sdkman-init.sh uses unbound variables
 source ~/.sdkman/bin/sdkman-init.sh
-sdk install java 25.0.2-tem
-sdk install maven 3.9.14
-sdk install gradle 9.4.0
+set -u
+sdk install java 25.0.2-tem < /dev/null || true
+sdk install maven 3.9.14 < /dev/null || true
+sdk install gradle 9.4.0 < /dev/null || true
 
 # --- Install JetBrains Toolbox ---
 "$(dirname "$0")/scripts/install-jetbrains-toolbox.sh"
