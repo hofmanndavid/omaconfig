@@ -16,6 +16,10 @@ if ! sudo -v; then
   exit 1
 fi
 
+# --- Git config ---
+git config --global user.name "David Hofmann"
+git config --global user.email "hofmanndavid@gmail.com"
+
 # --- System packages (pacman) ---
 PACMAN_PACKAGES=(
   stow

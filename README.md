@@ -33,7 +33,15 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 
 ### Manual stuff
 
-- Configure 1Password: browser extension, your ssh client, op cli tool
+- open nvim to configure plugins for the 1st time
+- Configure 1Password:
+  - Settings 
+    - browser → get 1password for your browser
+    - developer → set up ssh agent
+    - developer → integrate 1Password CLI. Test with:
+      - `op read op://dev-secrets/mcito-backblaze-test-app-key/username`
+  - main view → personal-ssh-keys → open ssh agent config file and add "personal-ssh-keys"
+  - cd && mkdir repos && cd repos && git clone git@github.com:hofmanndavid/omaconfig.git
 - Chromium:
   - Add uBlock Origin Lite https://chromewebstore.google.com/detail/ddkjiahejlhfcafbddmgiahcphecmpfh
   - Remove omarchy copy url extension
