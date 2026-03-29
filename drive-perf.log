@@ -1,0 +1,7 @@
+# Drive Performance Log
+
+## nanobeast + LUKS
+Sequential Read:  3.11 GB/s
+Sequential Write: 0.91 GB/s
+Random Read:      0.23 GB/s
+Random Write:     0.19 GB/s

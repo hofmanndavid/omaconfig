@@ -17,9 +17,14 @@ if ! sudo -v; then
 fi
 
 # --- System packages (pacman) ---
-sudo pacman -S --noconfirm stow
-sudo pacman -S --noconfirm sublime-text-4
-sudo pacman -S --noconfirm gnome-boxes
+PACMAN_PACKAGES=(
+  stow
+  sublime-text-4
+  gnome-boxes
+  transmission-gtk
+  fio
+)
+sudo pacman -S --noconfirm "${PACMAN_PACKAGES[@]}"
 
 # --- NPM based CLI tools ---
 npm install -g varlock@latest
