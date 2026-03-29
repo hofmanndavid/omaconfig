@@ -7,9 +7,6 @@ set -euxo pipefail
 
 echo "=== Fresh Install: Additional Software ==="
 
-# --- Snapshot fresh defaults for diffing before stow ---
-"$(dirname "$0")/scripts/snapshot-defaults.sh"
-
 # --- Require sudo (needed for pacman installs) ---
 if ! sudo -v; then
   echo "Error: this script requires sudo privileges"
@@ -56,8 +53,9 @@ set -u
 
 # --- Deploy config symlinks via stow ---
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
-stow -v -t "$HOME" -d "$REPO_DIR" configs
-
-echo "Review defaults/ vs configs/ in your editor."
+stow -v --adopt -t "$HOME" -d "$REPO_DIR" configs
+# --adopt moves existing files into the repo, replacing them with symlinks.
+# Review upstream changes with: git diff configs/
+# Then restore our versions with: git checkout -- configs/
 
 echo "=== Done ==="
