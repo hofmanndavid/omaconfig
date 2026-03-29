@@ -37,6 +37,8 @@ npm install -g @playwright/cli@latest
 (cd && playwright-cli install --skill)
 mise reshim  # ensure npm -g binaries get shims (needed for non-shell apps like IntelliJ)
 
+curl -fsSL https://bun.com/install | bash
+
 # --- SDK based installs ---
 if [[ ! -d "$HOME/.sdkman" ]]; then
   curl -s "https://get.sdkman.io" | bash
