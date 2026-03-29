@@ -41,12 +41,12 @@ mise reshim  # ensure npm -g binaries get shims (needed for non-shell apps like 
 if [[ ! -d "$HOME/.sdkman" ]]; then
   curl -s "https://get.sdkman.io" | bash
 fi
-set +u  # sdkman-init.sh uses unbound variables
+set +u  # sdkman scripts use unbound variables
 source ~/.sdkman/bin/sdkman-init.sh
-set -u
 sdk install java 25.0.2-tem < /dev/null || true
 sdk install maven 3.9.14 < /dev/null || true
 sdk install gradle 9.4.0 < /dev/null || true
+set -u
 
 # --- Install JetBrains Toolbox ---
 "$(dirname "$0")/scripts/install-jetbrains-toolbox.sh"
