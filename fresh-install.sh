@@ -45,9 +45,6 @@ sdk install maven 3.9.14 < /dev/null || true
 sdk install gradle 9.4.0 < /dev/null || true
 set -u
 
-# --- Install JetBrains Toolbox ---
-"$(dirname "$0")/scripts/install-jetbrains-toolbox.sh"
-
 # --- Post-install setup ---
 "$(dirname "$0")/scripts/set-wallpaper.sh"
 
