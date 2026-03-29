@@ -74,6 +74,7 @@ stow -v -t ~ configs
 - **A task is not complete until reproducibility is handled.** After any system-modifying action, immediately update `fresh-install.sh`, log the change in `changes.md`, and update this file if needed — all before reporting the task as done to the user. Do not wait to be asked.
 - When tracking a new config file, move it into `configs/` and run `stow -R -t ~ configs` (Stow commands must be run from the repo root `~/repos/omaconfig`). Update the "Tracked configs" list above.
 - Keep this CLAUDE.md up to date, for example update "Tracked configs" when new configs are added
+- **Before making any system change, search for an existing `omarchy-*` command** (`compgen -c | grep omarchy-<keyword>`) and use it instead of manual config edits or shell commands. Omarchy commands handle restarts, symlinks, and other side effects correctly.
 - **Never execute commands that require sudo.** Instead, give the user the command and let them run it manually (e.g. `! sudo pacman -S ...`). Only update `fresh-install.sh` and `changes.md` after the user confirms the command succeeded.
 - Before writing Hyprland window rules, check the current syntax from the Hyprland wiki — the format changes between versions.
 - Use the Omarchy skill when you need to understand hyprland/waybar/etc. config syntax

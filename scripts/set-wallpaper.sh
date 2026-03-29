@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 # set-wallpaper.sh
-# Copies black.png into the current theme's backgrounds and repoints the background symlink.
+# Copies black.png into the current theme's backgrounds and sets it via omarchy.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ASSETS_DIR="$SCRIPT_DIR/../assets"
@@ -14,5 +14,5 @@ if [[ ! -d "$THEME_BG_DIR" ]]; then
 fi
 
 cp "$ASSETS_DIR/black.png" "$THEME_BG_DIR/black.png"
-ln -sf "$THEME_BG_DIR/black.png" "$HOME/.config/omarchy/current/background"
+omarchy-theme-bg-set "$THEME_BG_DIR/black.png"
 echo "  installed: black wallpaper"
