@@ -19,6 +19,7 @@ fi
 # --- System packages (pacman) ---
 sudo pacman -S --noconfirm stow
 sudo pacman -S --noconfirm sublime-text-4
+sudo pacman -S --noconfirm gnome-boxes
 
 # --- NPM based CLI tools ---
 npm install -g varlock@latest

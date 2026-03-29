@@ -2,6 +2,11 @@
 
 System modifications performed, newest first.
 
+## 2026-03-29
+
+- **GNOME Boxes installed**: Added `gnome-boxes` via pacman for running VMs (uses QEMU/KVM). Added to `fresh-install.sh`
+- **System cleanup script**: Added `scripts/system-cleanup.sh` — removes orphaned packages, clears old pacman cache, trims journal logs older than 2 weeks, and checks for `.pacnew` files needing manual merge
+
 ## 2026-03-26
 
 - **Idle timeouts customized**: Updated hypridle.conf — screensaver at 420s/7min (was 150s), lock at 480s/8min (was 151s), screen off at 600s/10min (was 330s). Tracked hypridle.conf via Stow

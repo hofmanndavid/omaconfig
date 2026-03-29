@@ -13,3 +13,4 @@ export SDKMAN_DIR=~/.sdkman
 alias ioff='hyprctl keyword monitor "eDP-1, disable"'
 alias ion='hyprctl keyword monitor "eDP-1, preferred, auto, 1.5"'
 alias clauded='claude --dangerously-skip-permissions'
+alias omaconf='cd ~/repos/omaconfig && clauded'
