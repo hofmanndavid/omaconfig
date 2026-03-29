@@ -4,6 +4,7 @@ System modifications performed, newest first.
 
 ## 2026-03-29
 
+- **VS Code installed**: Added `visual-studio-code-bin` (AUR) via omarchy editor menu. Added to `fresh-install.sh`
 - **Drive speed test script**: Added `scripts/drive-speed-test.sh` — runs sequential and random fio benchmarks, reports READ/WRITE summary lines. Added `fio` to pacman packages
 - **Transmission installed**: Added `transmission-gtk` via pacman for BitTorrent downloads. Added to `fresh-install.sh`
 - **GNOME Boxes installed**: Added `gnome-boxes` via pacman for running VMs (uses QEMU/KVM). Added to `fresh-install.sh`

@@ -68,6 +68,7 @@ stow -v -t ~ configs
 
 ## Instructions for Claude
 
+- **Store all memory and learned context in this CLAUDE.md file**, not in external memory files outside this repo. This ensures everything is version-controlled and travels with the codebase.
 - **At the start of every new session**, before answering or doing anything else: read all files in this repo and load the Omarchy skill. This ensures full context of the current config state and access to Hyprland/Waybar/etc. syntax references.
 - When modifying system configs, edit the file under `configs/` in this repo — it's symlinked to the live system, so changes take effect immediately
 - **Every system change must be reproducible.** If a change is not covered by a config file in `configs/`, it MUST be added to `fresh-install.sh` (or another tracked mechanism) so a fresh install reproduces it. This includes: software installs, symlinks, copied assets, wallpaper changes, desktop files, shell commands that alter system state (e.g. `mise reshim`), and any other system-level side effects. Never make a live-system-only change without also making it reproducible from this repo.
@@ -80,3 +81,16 @@ stow -v -t ~ configs
 - Use the Omarchy skill when you need to understand hyprland/waybar/etc. config syntax
 - When rebinding a key in hypr/bindings.conf, check existing bindings first (omarchy-menu-keybindings --print) and add unbind before bind if the key is already used.
 - Read ~/.local/share/omarchy/ freely for reference, but never edit files there.
+- **Never run `omarchy-refresh-*` on stow-tracked files.** These commands overwrite the symlink with the omarchy default, breaking stow. To reset a tracked config, use `git checkout -- configs/<file>` instead. If refresh was accidentally run, fix with `stow -R -t ~ configs`.
+
+## System Info
+
+- Machine name: nanobeast
+- Storage: NVMe SSD (PCIe 3.0 x4), LUKS encrypted
+- CPU: AMD Ryzen (laptop)
+- Display: internal eDP-1 (1920x1200) + external LG ULTRAGEAR+ via USB dock
+- Omarchy 3.4.2, stable channel
+
+## 1Password
+
+Installed as `1password-beta` (AUR) with `1password-cli` (`op`). Not in fresh-install.sh — requires manual GUI setup 

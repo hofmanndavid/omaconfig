@@ -25,7 +25,10 @@ PACMAN_PACKAGES=(
   transmission-gtk
   fio
 )
-sudo pacman -S --noconfirm "${PACMAN_PACKAGES[@]}"
+omarchy-pkg-add "${PACMAN_PACKAGES[@]}"
+
+# --- Omarchy installer scripts ---
+omarchy-install-vscode
 
 # --- NPM based CLI tools ---
 npm install -g varlock@latest
@@ -52,7 +55,10 @@ set -u
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 stow -v --adopt -t "$HOME" -d "$REPO_DIR" configs
 # --adopt moves existing files into the repo, replacing them with symlinks.
-# Review upstream changes with: git diff configs/
-# Then restore our versions with: git checkout -- configs/
+echo ""
+echo "Config files has been stowed."
+echo "Review them in your IDE to revert what was in this repo originally."
+echo ""
+
 
 echo "=== Done ==="

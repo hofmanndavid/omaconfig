@@ -41,7 +41,6 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
     - developer → integrate 1Password CLI. Test with:
       - `op read op://dev-secrets/mcito-backblaze-test-app-key/username`
   - main view → personal-ssh-keys → open ssh agent config file and add "personal-ssh-keys"
-  - cd && mkdir repos && cd repos && git clone git@github.com:hofmanndavid/omaconfig.git
 - Chromium:
   - Add uBlock Origin Lite https://chromewebstore.google.com/detail/ddkjiahejlhfcafbddmgiahcphecmpfh
   - Remove omarchy copy url extension
@@ -52,7 +51,15 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
     - fprintd-enroll -f [left|right]-[thumb|index|middle|ring|little]-finger
     - fprintd-list $(whoami)
     - fprintd-verify
-- Clone this repo and run `fresh-install.sh` (it installs stow and deploys config symlinks)
+
+#### Clone this repo
+- `mkdir repos; cd repos; git clone git@github.com:hofmanndavid/omaconfig.git`
+- Run `copy-current-defaults.sh` just to bring into an ignored folder the defaults that we are going to replace with stow eventually
+- Run `install-jetbrains-toolbox.sh` script and install IntelliJ IDEA
+- Run `fresh-install.sh` (it installs a few things and deploys config symlinks)
+
+
+
 
 ### Updates and maintenance
 
