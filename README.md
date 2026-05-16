@@ -1,37 +1,9 @@
 This is a personal dotfiles-style overlay on top of the the awesome [Omarchy](https://omarchy.org) Linux desktop. 
 It is **not** an Omarchy fork or development repo. 
 
-Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
+Running Omarchy 3.8 with the Tokyo Night theme on Hyprland.
 
 ## Installing arch linux + omarchy
-
-### If you need to remove some partitions
-
-- lsblk to get your device list
-- fdisk /dev/<device>
-  - p to list partitions
-  - d to delete
-  - w to write and quit
-
-### Arch install TUI
-
-- connect to wifi before archinstall if not on a wired connection
-  - iwctl
-  - station wlan0 scan
-  - station wlan0 connect <tab>
-- archinstall
-- Disk configuration > Partitioning > Default partitioning layout > Select disk (with space + return)
-- Disk > File system > btrfs (default structure: yes + use compression)
-- (optional but highly recommended when installing manually) - Disk > Disk encryption > Encryption type: LUKS + Encryption password + Partitions (select the one)
-- Give your computer a Hostname
-- Set Bootloader to Limine
-- Set root password and add a super user
-- Applications > Audio > pipewire
-- Network configuration	> Copy ISO network config
-- Set your Timezone
-- Restart, login as your user and `curl -fsSL https://omarchy.org/install | bash`
-
-### Manual stuff
 
 - open nvim to configure plugins for the 1st time
 - Configure 1Password:
@@ -57,8 +29,6 @@ Running Omarchy 3.4.2 with the Tokyo Night theme on Hyprland.
 - Run `copy-current-defaults.sh` just to bring into an ignored folder the defaults that we are going to replace with stow eventually
 - Run `install-jetbrains-toolbox.sh` script and install IntelliJ IDEA
 - Run `fresh-install.sh` (it installs a few things and deploys config symlinks)
-
-
 
 
 ### Updates and maintenance
@@ -97,7 +67,11 @@ That is it, omarchy has amazing defaults as it is. You should try it.
 ### Fresh install setup
 
 ```bash
-./fresh-install.sh
+./install-additional-packages.sh
+./install-java-env.sh
+./install-jetbrains-toolbox.sh
+./stow-config-files.sh
+./set-wallpapers.sh
 ```
 
 Installs all additional software and deploys config symlinks via GNU Stow.

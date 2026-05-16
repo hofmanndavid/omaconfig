@@ -1,16 +1,20 @@
 # If not running interactively, don't do anything (leave this at the top of this file)
 [[ $- != *i* ]] && return
 
-# Exported env vars
-export SDKMAN_DIR=~/.sdkman
+# All the default Omarchy aliases and functions
+# (don't mess with these directly, just overwrite them here!)
+source ~/.local/share/omarchy/default/bash/rc
 
-# Source some env files
-. ~/.local/share/omarchy/default/bash/rc
-. ~/.local/bin/env
-. ~/.sdkman/bin/sdkman-init.sh
+# Add your own exports, aliases, and functions here.
+#
+# Make an alias for invoking commands you use constantly
+# alias p='python'
 
-# useful aliases
-alias ioff='hyprctl keyword monitor "eDP-1, disable"'
-alias ion='hyprctl keyword monitor "eDP-1, preferred, auto, 1.5"'
+. "$HOME/.local/share/../bin/env"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 alias clauded='claude --dangerously-skip-permissions'
-alias omaconf='cd ~/repos/omaconfig && clauded'
+alias omaconf='cd ~/omaconfig && clauded'
