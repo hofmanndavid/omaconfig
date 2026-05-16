@@ -3,6 +3,8 @@ It is **not** an Omarchy fork or development repo.
 
 Running Omarchy 3.8 with the Tokyo Night theme on Hyprland.
 
+The repo lives at `~/omaconfig` (cloned directly into the home directory).
+
 ## Installing arch linux + omarchy
 
 - open nvim to configure plugins for the 1st time
@@ -25,10 +27,9 @@ Running Omarchy 3.8 with the Tokyo Night theme on Hyprland.
     - fprintd-verify
 
 #### Clone this repo
-- `mkdir repos; cd repos; git clone git@github.com:hofmanndavid/omaconfig.git`
-- Run `copy-current-defaults.sh` just to bring into an ignored folder the defaults that we are going to replace with stow eventually
-- Run `install-jetbrains-toolbox.sh` script and install IntelliJ IDEA
-- Run `fresh-install.sh` (it installs a few things and deploys config symlinks)
+- `cd ~ && git clone git@github.com:hofmanndavid/omaconfig.git`
+- Run `./scripts/install-jetbrains-toolbox.sh` and install IntelliJ IDEA
+- Run the rest of the setup scripts (see [Fresh install setup](#fresh-install-setup) below)
 
 
 ### Updates and maintenance
@@ -67,11 +68,11 @@ That is it, omarchy has amazing defaults as it is. You should try it.
 ### Fresh install setup
 
 ```bash
-./install-additional-packages.sh
-./install-java-env.sh
-./install-jetbrains-toolbox.sh
-./stow-config-files.sh
-./set-wallpapers.sh
+./scripts/install-additional-packages.sh
+./scripts/install-java-env.sh
+./scripts/install-jetbrains-toolbox.sh
+./scripts/stow-config-files.sh
+./scripts/set-wallpaper.sh
 ```
 
 Installs all additional software and deploys config symlinks via GNU Stow.
@@ -80,7 +81,7 @@ Installs all additional software and deploys config symlinks via GNU Stow.
 
 Config files under `configs/` are symlinked into `~` via stow. Edits are live immediately — no deploy step needed.
 
-Stow commands must be run from the repo root (`~/repos/omaconfig`):
+Stow commands must be run from the repo root (`~/omaconfig`):
 
 ```bash
 # Deploy/refresh symlinks (after adding a new config file):

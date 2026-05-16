@@ -10,7 +10,7 @@ This repo tracks personal modifications to an Omarchy Linux desktop. It is NOT a
 2. Track additional software installed on top of base omarchy
 3. Provide a reproducible setup via scripts
 
-Running Omarchy 3.4.2, current theme: Tokyo Night.
+Running Omarchy 3.8, current theme: Tokyo Night.
 
 ## Key Concepts
 
@@ -22,13 +22,17 @@ Running Omarchy 3.4.2, current theme: Tokyo Night.
 
 ## Scripts
 
-### fresh-install.sh
-Records additional software installations (curl|bash, sdkman, npm -g, pacman, etc.) done on top of base omarchy. Run on a fresh omarchy install to restore the full environment. It also deploys config symlinks via `stow`. Only add entries here when you actually install something new.
+All setup and maintenance scripts live under `scripts/`. Run them individually on a fresh Omarchy install to restore software and deploy configs:
 
-### scripts/
-Helper scripts called from `fresh-install.sh`:
+- `install-additional-packages.sh` — pacman packages plus `omarchy install` apps (chrome, vscode, zed, bun, python)
+- `install-java-env.sh` — sdkman + java + maven + gradle
 - `install-jetbrains-toolbox.sh` — auto-detects and installs the latest JetBrains Toolbox
+- `stow-config-files.sh` — deploys config symlinks from `configs/` into `~` via GNU Stow
 - `set-wallpaper.sh` — copies black.png into theme backgrounds and repoints the background symlink
+- `system-cleanup.sh` — periodic cleanup: orphans, pacman cache, journal logs, `.pacnew` detection
+- `drive-speed-test.sh` — fio-based sequential and random read/write benchmark
+
+When you install something new, add the install command to `install-additional-packages.sh` (or another appropriate script in `scripts/`).
 
 ## Config Management (GNU Stow)
 
@@ -50,20 +54,16 @@ stow -v -t ~ configs
 
 - `configs/.bashrc` — shell aliases and custom functions
 - `configs/.config/alacritty/alacritty.toml` — terminal font, keybindings, window settings
-- `configs/.config/hypr/bindings.conf` — app launchers, key bindings, lid switch
 - `configs/.config/hypr/input.conf` — input/mouse/touchpad settings
-- `configs/.config/hypr/hypridle.conf` — idle timeouts (screensaver, lock, screen off)
-- `configs/.config/hypr/monitors.conf` — monitor layout, scaling, resolution
 - `configs/.config/hypr/looknfeel.conf` — gaps, borders, decorations, animations
 - `configs/.config/waybar/config.jsonc` — bar layout, modules, clock format
 - `configs/.config/starship.toml` — shell prompt (Starship) config
-- `configs/.config/waybar/style.css` — bar styling
 
 ## Workflow
 
 1. To modify a config: just edit the file under `configs/` — it's symlinked to the live system
 2. To track a new config: move it from `~/` into `configs/` at the same relative path, run `stow -R -t ~ configs`
-3. To track a new install: add the install command to `fresh-install.sh`
+3. To track a new install: add the install command to the appropriate script in `scripts/` (usually `install-additional-packages.sh`)
 4. Log what you did in `changes.md`
 
 ## Instructions for Claude
@@ -71,15 +71,15 @@ stow -v -t ~ configs
 - **Store all memory and learned context in this CLAUDE.md file**, not in external memory files outside this repo. This ensures everything is version-controlled and travels with the codebase.
 - **At the start of every new session**, before answering or doing anything else: read all files in this repo and load the Omarchy skill. This ensures full context of the current config state and access to Hyprland/Waybar/etc. syntax references.
 - When modifying system configs, edit the file under `configs/` in this repo — it's symlinked to the live system, so changes take effect immediately
-- **Every system change must be reproducible.** If a change is not covered by a config file in `configs/`, it MUST be added to `fresh-install.sh` (or another tracked mechanism) so a fresh install reproduces it. This includes: software installs, symlinks, copied assets, wallpaper changes, desktop files, shell commands that alter system state (e.g. `mise reshim`), and any other system-level side effects. Never make a live-system-only change without also making it reproducible from this repo.
-- **A task is not complete until reproducibility is handled.** After any system-modifying action, immediately update `fresh-install.sh`, log the change in `changes.md`, and update this file if needed — all before reporting the task as done to the user. Do not wait to be asked.
-- When tracking a new config file, move it into `configs/` and run `stow -R -t ~ configs` (Stow commands must be run from the repo root `~/repos/omaconfig`). Update the "Tracked configs" list above.
+- **Every system change must be reproducible.** If a change is not covered by a config file in `configs/`, it MUST be added to the appropriate script in `scripts/` (or another tracked mechanism) so a fresh install reproduces it. This includes: software installs, symlinks, copied assets, wallpaper changes, desktop files, shell commands that alter system state (e.g. `mise reshim`), and any other system-level side effects. Never make a live-system-only change without also making it reproducible from this repo.
+- **A task is not complete until reproducibility is handled.** After any system-modifying action, immediately update the relevant `scripts/` script, log the change in `changes.md`, and update this file if needed — all before reporting the task as done to the user. Do not wait to be asked.
+- When tracking a new config file, move it into `configs/` and run `stow -R -t ~ configs` (Stow commands must be run from the repo root `~/omaconfig`). Update the "Tracked configs" list above.
 - Keep this CLAUDE.md up to date, for example update "Tracked configs" when new configs are added
 - **Before making any system change, search for an existing `omarchy-*` command** (`compgen -c | grep omarchy-<keyword>`) and use it instead of manual config edits or shell commands. Omarchy commands handle restarts, symlinks, and other side effects correctly.
-- **Never execute commands that require sudo.** Instead, give the user the command and let them run it manually (e.g. `! sudo pacman -S ...`). Only update `fresh-install.sh` and `changes.md` after the user confirms the command succeeded.
+- **Never execute commands that require sudo.** Instead, give the user the command and let them run it manually (e.g. `! sudo pacman -S ...`). Only update the relevant script in `scripts/` and `changes.md` after the user confirms the command succeeded.
 - Before writing Hyprland window rules, check the current syntax from the Hyprland wiki — the format changes between versions.
 - Use the Omarchy skill when you need to understand hyprland/waybar/etc. config syntax
-- When rebinding a key in hypr/bindings.conf, check existing bindings first (omarchy-menu-keybindings --print) and add unbind before bind if the key is already used.
+- When rebinding a key in hypr/bindings.conf, check existing bindings first (`omarchy menu keybindings --print`) and add unbind before bind if the key is already used.
 - Read ~/.local/share/omarchy/ freely for reference, but never edit files there.
 - **Never run `omarchy-refresh-*` on stow-tracked files.** These commands overwrite the symlink with the omarchy default, breaking stow. To reset a tracked config, use `git checkout -- configs/<file>` instead. If refresh was accidentally run, fix with `stow -R -t ~ configs`.
 
@@ -93,4 +93,4 @@ stow -v -t ~ configs
 
 ## 1Password
 
-Installed as `1password-beta` (AUR) with `1password-cli` (`op`). Not in fresh-install.sh — requires manual GUI setup 
+Installed as `1password-beta` (AUR) with `1password-cli` (`op`). Not in `scripts/install-additional-packages.sh` — requires manual GUI setup (see README for the full procedure).

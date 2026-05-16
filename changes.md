@@ -2,6 +2,14 @@
 
 System modifications performed, newest first.
 
+## 2026-05-15
+
+- **Omarchy upgraded to 3.8**: From 3.4.2 via omarchy menu → update → omarchy
+- **Split `fresh-install.sh` into dedicated scripts under `scripts/`**: `install-additional-packages.sh`, `install-java-env.sh`, `install-jetbrains-toolbox.sh`, `stow-config-files.sh`, `set-wallpaper.sh`. The old monolithic `fresh-install.sh` is gone
+- **Stopped tracking 4 configs**: Removed `bindings.conf`, `hypridle.conf`, `monitors.conf` (hypr) and `style.css` (waybar) from stow — using omarchy defaults for these going forward
+- **Documentation sync**: Updated CLAUDE.md and README.md to reflect the new `scripts/` layout, the trimmed tracked-configs list, current Omarchy version, and that the repo lives at `~/omaconfig` (not `~/repos/omaconfig`). Removed reference to `copy-current-defaults.sh` (no longer needed)
+- **Fixed waybar config**: Removed stray `cp`/`rm` shell commands that had been accidentally pasted into `configs/.config/waybar/config.jsonc`, which had broken JSON parsing and prevented waybar from starting
+
 ## 2026-03-29
 
 - **VS Code installed**: Added `visual-studio-code-bin` (AUR) via omarchy editor menu. Added to `fresh-install.sh`

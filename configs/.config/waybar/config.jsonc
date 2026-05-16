@@ -35,8 +35,7 @@
       "1": [],
       "2": [],
       "3": [],
-      "4": [],cp --remove-destination ~/omaconfig/configs/.config/hypr/hypridle.conf ~/.config/hypr/hypridle.conf
-rm ~/omaconfig/configs/.config/hypr/hypridle.conf
+      "4": [],
       "5": []
     }
   },
