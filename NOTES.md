@@ -19,3 +19,8 @@ AI notes
 * Playwright skill:
   * npm install -g @playwright/cli@latest && mise reshim
   * playwright-cli install --skill
+* Vaadin MCP server: `claude mcp add vaadin --transport http https://mcp.vaadin.com/docs`
+* Vercel's agent-browser: https://agent-browser.dev/installation
+  * npm install -g agent-browser
+  * agent-browser install --with-deps
+  * npx skills add vercel-labs/agent-browser

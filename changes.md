@@ -2,6 +2,10 @@
 
 System modifications performed, newest first.
 
+## 2026-05-19
+
+- **npm supply-chain hardening**: Set `ignore-scripts=true` globally in `~/.npmrc` to block dependency lifecycle scripts (preinstall/install/postinstall/prepare) — the most common npm supply-chain attack vector. Added equivalent conditional setup for npm and pnpm to `scripts/install-additional-packages.sh` so a fresh install reproduces the hardening. Bun already gates lifecycle scripts via `trustedDependencies`. Re-enable per project with `--ignore-scripts=false` when a dep genuinely needs native builds
+
 ## 2026-05-15
 
 - **Omarchy upgraded to 3.8**: From 3.4.2 via omarchy menu → update → omarchy

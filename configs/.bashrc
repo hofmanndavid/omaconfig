@@ -18,3 +18,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 alias clauded='claude --dangerously-skip-permissions'
 alias omaconf='cd ~/omaconfig && clauded'
+alias vi='nvim'
